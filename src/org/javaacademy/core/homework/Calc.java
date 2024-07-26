@@ -36,7 +36,7 @@ public class Calc {
                 break;
             default:
                 System.out.println("Ошибка");
-                scanner.close();
         }
+        scanner.close();
     }
 }

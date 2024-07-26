@@ -178,19 +178,31 @@ public class Homework1 {
         profitBeforeTaxes = profitBeforeTaxesSausages.add(profitBeforeTaxesHam);
         profitBeforeTaxes = profitBeforeTaxes.add(profitBeforeTaxesNeck);
         profitBeforeTaxes = profitBeforeTaxes.subtract(new BigDecimal(1_000_000));
+        System.out.println("прибыль до налогов компании = " + profitBeforeTaxes);
 
         //считаем общую прибыль после налогов
         BigDecimal profitAfterTaxes = BigDecimal.valueOf(0.0);
-        BigDecimal onePercentOfProfits = profitBeforeTaxes.divide(new BigDecimal(100.0));
+        BigDecimal onePercentOfMillion = new BigDecimal(1_000_000.0).divide(new BigDecimal(100.0));
         if (profitBeforeTaxes.compareTo(new BigDecimal(1_000_000.0)) <= 0 ){
-            profitAfterTaxes = onePercentOfProfits.multiply(new BigDecimal(8.0));
+            BigDecimal onePercentOfProfitsOne = profitBeforeTaxes.divide(new BigDecimal(100.0));
+            profitAfterTaxes = onePercentOfProfitsOne.multiply(new BigDecimal(8.0));
             profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes);
         } else if (profitBeforeTaxes.compareTo(new BigDecimal(2_000_000.0)) <= 0 ) {
-            profitAfterTaxes = onePercentOfProfits.multiply(new BigDecimal(10.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes);
+            BigDecimal profitAfterTaxes8Profits = onePercentOfMillion.multiply(new BigDecimal(8.0));
+            profitAfterTaxes = profitBeforeTaxes.subtract(new BigDecimal(1_000_000));
+            BigDecimal onePercentOfProfitsTwo = profitAfterTaxes.divide(new BigDecimal(100.0));
+            BigDecimal profitAfterTaxes10Profits = onePercentOfProfitsTwo.multiply(new BigDecimal(10.0));
+            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits);
+            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes10Profits);
         } else {
-            profitAfterTaxes = onePercentOfProfits.multiply(new BigDecimal(13.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes);
+            BigDecimal profitAfterTaxes8Profits = onePercentOfMillion.multiply(new BigDecimal(8.0));
+            BigDecimal profitAfterTaxes10Profits = onePercentOfMillion.multiply(new BigDecimal(10.0));
+            profitAfterTaxes = profitBeforeTaxes.subtract(new BigDecimal(2_000_000));
+            BigDecimal onePercentOfProfitsThree = profitAfterTaxes.divide(new BigDecimal(100.0));
+            BigDecimal profitAfterTaxes13Profits = onePercentOfProfitsThree.multiply(new BigDecimal(13.0));
+            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits);
+            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes10Profits);
+            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes13Profits);
         }
         System.out.println("прибыль после налогов компании = " + profitAfterTaxes);
     }
