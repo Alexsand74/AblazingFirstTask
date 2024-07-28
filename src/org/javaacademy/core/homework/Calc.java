@@ -15,24 +15,26 @@ public class Calc {
         //6. В зависимости от знака операции произвести соответствующую операцию. Вывести результат на экран.
         //Если знак операции не относится к перечисленным выше, вывести - "Ошибка"
         System.out.println("Введите первое число");
-        double firstValue = scanner.nextDouble();
-        scanner.nextLine();
+        double firstValue = Double.parseDouble(scanner.nextLine());
+        System.out.println(firstValue);
         System.out.println("Введите знак операции - +, -, *, /");
         String calculationOperation = scanner.nextLine();
+        System.out.println(calculationOperation);
         System.out.println("Введите второе число");
-        double secondValue = scanner.nextDouble();
+        double secondValue = Double.parseDouble(scanner.nextLine());
+        System.out.println(secondValue);
         switch (calculationOperation) {
             case "+":
-                System.out.println(firstValue + secondValue);
+                System.out.println("ответ = " + (firstValue + secondValue));
                 break;
             case "-":
-                System.out.println(firstValue - secondValue);
+                System.out.println("ответ = " + (firstValue - secondValue));
                 break;
             case "*":
-                System.out.println(firstValue * secondValue);
+                System.out.println("ответ = " + firstValue * secondValue);
                 break;
             case "/":
-                System.out.println(firstValue / secondValue);
+                System.out.println("ответ = " + firstValue / secondValue);
                 break;
             default:
                 System.out.println("Ошибка");
