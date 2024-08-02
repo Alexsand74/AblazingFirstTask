@@ -191,7 +191,7 @@ public class Homework1 {
         BigDecimal profitBeforeTaxes = BigDecimal.valueOf(0.0);
         profitBeforeTaxes = incomeBefTaxesSausages.add(profitBeforeTaxesHam).add(profitBeforeTaxesNeck);
         profitBeforeTaxes = profitBeforeTaxes.subtract(million);
-        System.out.println("прибыль до налогов компании = " + profitBeforeTaxes);
+        System.out.println("доход до налогов компании = " + profitBeforeTaxes);
 
         //считаем общий доход после налогов
         BigDecimal profitAfterTaxes = BigDecimal.valueOf(0.0);
@@ -236,6 +236,6 @@ public class Homework1 {
                     .subtract(profitAfterTaxes10Profits)
                     .subtract(profitAfterTaxes13Profits);
         }
-        System.out.println("прибыль после налогов компании = " + profitAfterTaxes);
+        System.out.println("доход после налогов компании = " + profitAfterTaxes);
     }
 }
