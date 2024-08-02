@@ -194,48 +194,55 @@ public class Homework1 {
         System.out.println("доход до налогов компании = " + profitBeforeTaxes);
 
         //считаем общий доход после налогов
-        BigDecimal profitAfterTaxes = BigDecimal.valueOf(0.0);
+        BigDecimal intermediateIncomeValue = BigDecimal.valueOf(0.0);
+        BigDecimal taxIncomeUpToMillion = BigDecimal.valueOf(0.0);
+        BigDecimal taxIncomeUpToTwoMillion = BigDecimal.valueOf(0.0);
+        BigDecimal taxIncomeBelowAndAboveThoseMillions = BigDecimal.valueOf(0.0);
         BigDecimal onePercentMillion = million.divide(oneHundred);
 
         if (profitBeforeTaxes.compareTo(million) <= zero) {
 
-            BigDecimal onePercentOfProfitsOne = profitBeforeTaxes
-                    .divide((oneHundred), RoundingMode.HALF_UP);
-
-            profitAfterTaxes = profitBeforeTaxes
-                    .subtract(onePercentOfProfitsOne.multiply(eight));
+            taxIncomeUpToMillion = profitBeforeTaxes
+                    .subtract((profitBeforeTaxes
+                            .divide((oneHundred), RoundingMode.HALF_UP))
+                            .multiply(eight));
 
         } else if (profitBeforeTaxes.compareTo(twoMillion) <= zero) {
 
-            BigDecimal profitAfterTaxes8Profits = onePercentMillion.multiply(eight);
+            BigDecimal profitAfterTaxes8Profits = onePercentMillion
+                    .multiply(eight);
 
-            profitAfterTaxes = profitBeforeTaxes.subtract(million);
+            intermediateIncomeValue = profitBeforeTaxes
+                    .subtract(million);
 
-            BigDecimal onePercentOfProfitsTwo = profitAfterTaxes
-                    .divide((oneHundred), RoundingMode.HALF_UP);
+            BigDecimal profitAfterTaxes10Profits = (intermediateIncomeValue
+                    .divide((oneHundred), RoundingMode.HALF_UP))
+                    .multiply(ten);
 
-            BigDecimal profitAfterTaxes10Profits = onePercentOfProfitsTwo.multiply(ten);
-
-            profitAfterTaxes = profitBeforeTaxes
+            taxIncomeUpToTwoMillion = profitBeforeTaxes
                     .subtract(profitAfterTaxes8Profits)
                     .subtract(profitAfterTaxes10Profits);
         } else {
-            BigDecimal profitAfterTaxes8Profits = onePercentMillion.multiply(eight);
-            BigDecimal profitAfterTaxes10Profits = onePercentMillion.multiply(ten);
+            BigDecimal profitAfterTaxes8Profits = onePercentMillion
+                    .multiply(eight);
+            BigDecimal profitAfterTaxes10Profits = onePercentMillion
+                    .multiply(ten);
 
-            profitAfterTaxes = profitBeforeTaxes
+            intermediateIncomeValue = profitBeforeTaxes
                     .subtract(twoMillion);
 
-            BigDecimal onePercentOfProfitsThree = profitAfterTaxes
-                    .divide(oneHundred, RoundingMode.HALF_UP);
-
-            BigDecimal profitAfterTaxes13Profits = onePercentOfProfitsThree
+            BigDecimal profitAfterTaxes13Profits = (intermediateIncomeValue
+                    .divide(oneHundred, RoundingMode.HALF_UP))
                     .multiply(thirteen);
 
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits)
+            taxIncomeBelowAndAboveThoseMillions = profitBeforeTaxes.subtract(profitAfterTaxes8Profits)
                     .subtract(profitAfterTaxes10Profits)
                     .subtract(profitAfterTaxes13Profits);
         }
-        System.out.println("доход после налогов компании = " + profitAfterTaxes);
+        System.out.println("доход после налогов компании = "
+                + taxIncomeUpToMillion
+                .add(taxIncomeUpToTwoMillion)
+                .add(taxIncomeBelowAndAboveThoseMillions)
+        );
     }
 }
