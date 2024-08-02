@@ -173,12 +173,12 @@ public class Homework1 {
         }
         incomeBefTaxesSausages = amountSaleSausage.subtract(incomeBefTaxesSausages);
 
-        //считаем прибыль по ветчине до налогов
+        //считаем доход по ветчине до налогов
         BigDecimal profitBeforeTaxesHam = new BigDecimal(0.0);
         profitBeforeTaxesHam = costHam.multiply(quantyHamSoldKg);
         profitBeforeTaxesHam = amountFromSaleHam.subtract(profitBeforeTaxesHam);
 
-        //считаем прибыль по шейки до налогов
+        //считаем доход по шейки до налогов
         BigDecimal profitBeforeTaxesNeck = new BigDecimal(0.0);
         if (quantNeckSoldKg.compareTo(fiveHundred) >= zero) {
             profitBeforeTaxesNeck = costOfNeckDuring500kg.multiply(quantNeckSoldKg);
@@ -187,13 +187,13 @@ public class Homework1 {
         }
         profitBeforeTaxesNeck = amountOfMoneyFromSaleOfNeck.subtract(profitBeforeTaxesNeck);
 
-        //считаем общую прибыль до налогов
+        //считаем общий доход до налогов
         BigDecimal profitBeforeTaxes = BigDecimal.valueOf(0.0);
         profitBeforeTaxes = incomeBefTaxesSausages.add(profitBeforeTaxesHam).add(profitBeforeTaxesNeck);
         profitBeforeTaxes = profitBeforeTaxes.subtract(million);
         System.out.println("прибыль до налогов компании = " + profitBeforeTaxes);
 
-        //считаем общую прибыль после налогов
+        //считаем общий доход после налогов
         BigDecimal profitAfterTaxes = BigDecimal.valueOf(0.0);
         BigDecimal onePercentMillion = million.divide(oneHundred);
 
