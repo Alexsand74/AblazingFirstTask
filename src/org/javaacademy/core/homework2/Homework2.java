@@ -19,8 +19,9 @@ public class Homework2 {
         String[] words = {"Это", "шашлык", "на", "шампуре"};
         //С помощью циклов и функции String.substring составить итоговый текст
         //Это-шашлык-на-шампуре
+        //первый вариант решения
         String resultLine = "";
-        String lineToInsert = "-";
+        final String lineToInsert = "-";
         int wordsSize = words.length;
         for (int i = 0; i < wordsSize; i++) {
             resultLine += words[i].stripLeading();
@@ -28,6 +29,14 @@ public class Homework2 {
                 resultLine += lineToInsert;
             }
         }
+        System.out.println(resultLine);
+
+        //второй вариант решения
+        resultLine = "";
+        for (int i = 0; i < wordsSize; i++) {
+            resultLine += (words[i].stripLeading() + lineToInsert);
+        }
+        resultLine = resultLine.substring(0,resultLine.length()-1);
         System.out.println(resultLine);
         System.out.println();
     }
@@ -55,8 +64,10 @@ public class Homework2 {
             leftUpToRightDownSum += arrayOfNumbers[i][i];
             leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length - 1 - i][i];
         }
-        System.out.println("Cумма с левого верхнего угла к нижнему правому = " + leftUpToRightDownSum);
-        System.out.println("Сумма с левого нижнего угла к верхнему правому = " + leftDownToRightUpSum);
+        System.out.println("Cумма диагонали с левого верхнего угла к нижнему правому = "
+                + leftUpToRightDownSum);
+        System.out.println("Сумма диагонали с левого нижнего угла к верхнему правому = "
+                + leftDownToRightUpSum);
         System.out.println();
     }
 
@@ -116,18 +127,23 @@ public class Homework2 {
         //"перевернуть" - значит последние элементы становятся первыми и наоборот.
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         System.out.println("До переворачивания -> " + Arrays.toString(numbers));
-//         int temp;
-//        for (int i = 0; i < numbers.length/2; i++) {
-//            temp = numbers[i];
-//            numbers[i] = numbers[numbers.length -1 - i];
-//            numbers[numbers.length -1 - i] = temp;
-//        }
-//        System.out.println(Arrays.toString(numbers));
+        //первое решение
+        int temp;
+        for (int i = 0; i < numbers.length/2; i++) {
+            temp = numbers[i];
+            numbers[i] = numbers[numbers.length -1 - i];
+            numbers[numbers.length -1 - i] = temp;
+        }
+        System.out.println("После переворачивания -> " + Arrays.toString(numbers));
+        Arrays.sort(numbers);
 
+        // второе решение
+        System.out.println("До переворачивания -> " + Arrays.toString(numbers));
+        int numberLastElemArr = numbers.length - 1;
         for (int i = 0; i < numbers.length / 2; i++) {
-            numbers[i] = numbers[i] ^ numbers[numbers.length - 1 - i];
-            numbers[numbers.length - 1 - i] = numbers[i] ^ numbers[numbers.length - 1 - i];
-            numbers[i] = numbers[i] ^ numbers[numbers.length - 1 - i];
+            numbers[i] = numbers[i] ^ numbers[numberLastElemArr - i];
+            numbers[numberLastElemArr - i] = numbers[i] ^ numbers[numberLastElemArr - i];
+            numbers[i] = numbers[i] ^ numbers[numberLastElemArr - i];
         }
         System.out.println("После переворачивания -> " + Arrays.toString(numbers));
     }
