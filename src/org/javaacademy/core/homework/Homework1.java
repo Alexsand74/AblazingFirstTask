@@ -2,7 +2,6 @@ package org.javaacademy.core.homework;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Arrays;
 
 public class Homework1 {
     public static void main(String[] args) {
