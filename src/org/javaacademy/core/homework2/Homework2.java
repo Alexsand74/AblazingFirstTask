@@ -1,6 +1,6 @@
 package org.javaacademy.core.homework2;
 
-import org.example.Ablazzing.homework2.office.Runner;
+import org.javaacademy.core.homework2.office.Runner;
 
 import java.util.Arrays;
 import java.util.Random;
