@@ -30,13 +30,14 @@ public class Homework1 {
         name = name.trim().toUpperCase();
         String[] arrayWords = name.split(" ");
         String surname = arrayWords[0];
-        String conditionOne = "ова ".trim().toUpperCase();
-        String conditionTwo = "ов ".trim().toUpperCase();
-        if (surname.contains(conditionOne)) {
+        String endingWordFemale = "ова ".trim().toUpperCase();
+        String endingWordMasculine = "ов ".trim().toUpperCase();
+        if (surname.contains(endingWordFemale)) {
             System.out.println("Уважаемая " + name);
-        } else if (surname.contains(conditionTwo)) {
+        } else if (surname.contains(endingWordMasculine)) {
             System.out.println("Уважаемый " + name);
         } else {
+
             System.out.println("Неизвестное лицо " + name);
         }
     }
@@ -127,81 +128,113 @@ public class Homework1 {
         //Ветчины 8511кг - это произведено и продано
         //Шейки 6988кг - это произведено и продано
 
-        BigDecimal sellingPriceOfSausage = BigDecimal.valueOf(800.0);
-        BigDecimal costOfSausageProductionIsLess1000kg = BigDecimal.valueOf(412.0);
-        BigDecimal costOfSausageProductionIsFrom1000to2000 = BigDecimal.valueOf(408.0);
-        BigDecimal costOfSausageProductionIsFrom2000 = BigDecimal.valueOf(404.0);
+        //константы
+        final int zero = 0;
+        final BigDecimal eight = new BigDecimal(8.0);
+        final BigDecimal ten = new BigDecimal(10.0);
+        final BigDecimal thirteen = new BigDecimal(13.0);
+        final BigDecimal oneHundred = new BigDecimal(100.0);
+        final BigDecimal fiveHundred = new BigDecimal(500.0);
+        final BigDecimal thousand = new BigDecimal(1000.0);
+        final BigDecimal twoThousand = new BigDecimal(2000.0);
+        final BigDecimal million = new BigDecimal(1_000_000.0);
+        final BigDecimal twoMillion = new BigDecimal(2_000_000.0);
 
-        BigDecimal sellingPriceOfHam = BigDecimal.valueOf(350.0);
-        BigDecimal costOfHamInProduction = BigDecimal.valueOf(275.0);
+        //переменные
+        BigDecimal sausagePrice = BigDecimal.valueOf(800.0);
+        BigDecimal costSausage1000kg = BigDecimal.valueOf(412.0);
+        BigDecimal costSausage1000to2000 = BigDecimal.valueOf(408.0);
+        BigDecimal costSausage2000 = BigDecimal.valueOf(404.0);
+
+        BigDecimal priceHam = BigDecimal.valueOf(350.0);
+        BigDecimal costHam = BigDecimal.valueOf(275.0);
 
         BigDecimal neckSalePrice = BigDecimal.valueOf(500.0);
-        BigDecimal costOfNeckDuringProductionIsLess500kg= BigDecimal.valueOf(311.0);
-        BigDecimal costOfNeckDuringProductionIsGreaterThanOrEqualTo500kg = BigDecimal.valueOf(299.0);
+        BigDecimal costNeckDuring500kg = BigDecimal.valueOf(311.0);
+        BigDecimal costOfNeckDuring500kg = BigDecimal.valueOf(299.0);
 
-        BigDecimal quantityOfSausageSoldInKg = BigDecimal.valueOf(2000.0);
-        BigDecimal quantityOfHamSoldInKg = BigDecimal.valueOf(8511.0);
-        BigDecimal quantityOfNeckSoldInKg = BigDecimal.valueOf(6988.0);
+        BigDecimal quantSausageSoldKg = BigDecimal.valueOf(2000.0);
+        BigDecimal quantyHamSoldKg = BigDecimal.valueOf(8511.0);
+        BigDecimal quantNeckSoldKg = BigDecimal.valueOf(6988.0);
 
         //считаем полную сумму от проданного продукта за все проданные килограммы
-        BigDecimal amountOfMoneyFromSaleOfSausage = sellingPriceOfSausage.multiply(quantityOfSausageSoldInKg);
-        BigDecimal amountOfMoneyFromSaleOfHam = sellingPriceOfHam.multiply(quantityOfHamSoldInKg);
-        BigDecimal amountOfMoneyFromSaleOfNeck = neckSalePrice.multiply(quantityOfNeckSoldInKg);
+        BigDecimal amountSaleSausage = sausagePrice.multiply(quantSausageSoldKg);
+        BigDecimal amountFromSaleHam = priceHam.multiply(quantyHamSoldKg);
+        BigDecimal amountOfMoneyFromSaleOfNeck = neckSalePrice.multiply(quantNeckSoldKg);
 
-        //считаем прибыль по колбасе до налогов
-        BigDecimal profitBeforeTaxesSausages = new BigDecimal(0.0);
-        if (quantityOfSausageSoldInKg.compareTo(new BigDecimal(1000.0)) < 0 ) {
-            profitBeforeTaxesSausages = costOfSausageProductionIsLess1000kg.multiply(quantityOfSausageSoldInKg);
-        } else if (quantityOfSausageSoldInKg.compareTo(new BigDecimal(2000.0)) < 0){
-            profitBeforeTaxesSausages = costOfSausageProductionIsFrom1000to2000.multiply(quantityOfSausageSoldInKg);
+        //считаем доход по колбасе до налогов
+        BigDecimal incomeBefTaxesSausages = new BigDecimal(0.0);
+        if (quantSausageSoldKg.compareTo(thousand) < zero) {
+            incomeBefTaxesSausages = costSausage1000kg.multiply(quantSausageSoldKg);
+        } else if (quantSausageSoldKg.compareTo(twoThousand) < 0) {
+            incomeBefTaxesSausages = costSausage1000to2000.multiply(quantSausageSoldKg);
         } else {
-            profitBeforeTaxesSausages = costOfSausageProductionIsFrom2000.multiply(quantityOfSausageSoldInKg);
+            incomeBefTaxesSausages = costSausage2000.multiply(quantSausageSoldKg);
         }
-        profitBeforeTaxesSausages = amountOfMoneyFromSaleOfSausage.subtract(profitBeforeTaxesSausages);
+        incomeBefTaxesSausages = amountSaleSausage.subtract(incomeBefTaxesSausages);
 
         //считаем прибыль по ветчине до налогов
         BigDecimal profitBeforeTaxesHam = new BigDecimal(0.0);
-        profitBeforeTaxesHam = costOfHamInProduction.multiply(quantityOfHamSoldInKg);
-        profitBeforeTaxesHam = amountOfMoneyFromSaleOfHam.subtract(profitBeforeTaxesHam);
+        profitBeforeTaxesHam = costHam.multiply(quantyHamSoldKg);
+        profitBeforeTaxesHam = amountFromSaleHam.subtract(profitBeforeTaxesHam);
 
         //считаем прибыль по шейки до налогов
         BigDecimal profitBeforeTaxesNeck = new BigDecimal(0.0);
-        if (quantityOfNeckSoldInKg.compareTo(new BigDecimal(500.0)) >= 0 ){
-            profitBeforeTaxesNeck = costOfNeckDuringProductionIsGreaterThanOrEqualTo500kg.multiply(quantityOfNeckSoldInKg);
+        if (quantNeckSoldKg.compareTo(fiveHundred) >= zero) {
+            profitBeforeTaxesNeck = costOfNeckDuring500kg.multiply(quantNeckSoldKg);
         } else {
-            profitBeforeTaxesNeck = costOfNeckDuringProductionIsLess500kg.multiply(quantityOfNeckSoldInKg);
+            profitBeforeTaxesNeck = costNeckDuring500kg.multiply(quantNeckSoldKg);
         }
         profitBeforeTaxesNeck = amountOfMoneyFromSaleOfNeck.subtract(profitBeforeTaxesNeck);
 
         //считаем общую прибыль до налогов
         BigDecimal profitBeforeTaxes = BigDecimal.valueOf(0.0);
-        profitBeforeTaxes = profitBeforeTaxesSausages.add(profitBeforeTaxesHam).add(profitBeforeTaxesNeck);
-        profitBeforeTaxes = profitBeforeTaxes.subtract(new BigDecimal(1_000_000));
+        profitBeforeTaxes = incomeBefTaxesSausages.add(profitBeforeTaxesHam).add(profitBeforeTaxesNeck);
+        profitBeforeTaxes = profitBeforeTaxes.subtract(million);
         System.out.println("прибыль до налогов компании = " + profitBeforeTaxes);
 
         //считаем общую прибыль после налогов
         BigDecimal profitAfterTaxes = BigDecimal.valueOf(0.0);
-        BigDecimal onePercentOfMillion = new BigDecimal(1_000_000.0).divide(new BigDecimal(100.0));
-        if (profitBeforeTaxes.compareTo(new BigDecimal(1_000_000.0)) <= 0 ){
-            BigDecimal onePercentOfProfitsOne = profitBeforeTaxes.divide(new BigDecimal(100.0), RoundingMode.HALF_UP);
-            profitAfterTaxes = onePercentOfProfitsOne.multiply(new BigDecimal(8.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes);
-        } else if (profitBeforeTaxes.compareTo(new BigDecimal(2_000_000.0)) <= 0 ) {
-            BigDecimal profitAfterTaxes8Profits = onePercentOfMillion.multiply(new BigDecimal(8.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(new BigDecimal(1_000_000));
-            BigDecimal onePercentOfProfitsTwo = profitAfterTaxes.divide(new BigDecimal(100.0), RoundingMode.HALF_UP);
-            BigDecimal profitAfterTaxes10Profits = onePercentOfProfitsTwo.multiply(new BigDecimal(10.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits);
-            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes10Profits);
+        BigDecimal onePercentMillion = million.divide(oneHundred);
+
+        if (profitBeforeTaxes.compareTo(million) <= zero) {
+
+            BigDecimal onePercentOfProfitsOne = profitBeforeTaxes
+                    .divide((oneHundred), RoundingMode.HALF_UP);
+
+            profitAfterTaxes = profitBeforeTaxes
+                    .subtract(onePercentOfProfitsOne.multiply(eight));
+
+        } else if (profitBeforeTaxes.compareTo(twoMillion) <= zero) {
+
+            BigDecimal profitAfterTaxes8Profits = onePercentMillion.multiply(eight);
+
+            profitAfterTaxes = profitBeforeTaxes.subtract(million);
+
+            BigDecimal onePercentOfProfitsTwo = profitAfterTaxes
+                    .divide((oneHundred), RoundingMode.HALF_UP);
+
+            BigDecimal profitAfterTaxes10Profits = onePercentOfProfitsTwo.multiply(ten);
+
+            profitAfterTaxes = profitBeforeTaxes
+                    .subtract(profitAfterTaxes8Profits)
+                    .subtract(profitAfterTaxes10Profits);
         } else {
-            BigDecimal profitAfterTaxes8Profits = onePercentOfMillion.multiply(new BigDecimal(8.0));
-            BigDecimal profitAfterTaxes10Profits = onePercentOfMillion.multiply(new BigDecimal(10.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(new BigDecimal(2_000_000));
-            BigDecimal onePercentOfProfitsThree = profitAfterTaxes.divide(new BigDecimal(100.0), RoundingMode.HALF_UP);
-            BigDecimal profitAfterTaxes13Profits = onePercentOfProfitsThree.multiply(new BigDecimal(13.0));
-            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits);
-            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes10Profits);
-            profitAfterTaxes = profitAfterTaxes.subtract(profitAfterTaxes13Profits);
+            BigDecimal profitAfterTaxes8Profits = onePercentMillion.multiply(eight);
+            BigDecimal profitAfterTaxes10Profits = onePercentMillion.multiply(ten);
+
+            profitAfterTaxes = profitBeforeTaxes
+                    .subtract(twoMillion);
+
+            BigDecimal onePercentOfProfitsThree = profitAfterTaxes
+                    .divide(oneHundred, RoundingMode.HALF_UP);
+
+            BigDecimal profitAfterTaxes13Profits = onePercentOfProfitsThree
+                    .multiply(thirteen);
+
+            profitAfterTaxes = profitBeforeTaxes.subtract(profitAfterTaxes8Profits)
+                    .subtract(profitAfterTaxes10Profits)
+                    .subtract(profitAfterTaxes13Profits);
         }
         System.out.println("прибыль после налогов компании = " + profitAfterTaxes);
     }
