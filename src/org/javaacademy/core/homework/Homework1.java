@@ -140,22 +140,21 @@ public class Homework1 {
         final BigDecimal million = new BigDecimal(1_000_000.0);
         final BigDecimal twoMillion = new BigDecimal(2_000_000.0);
 
-        //переменные
-        BigDecimal sausagePrice = BigDecimal.valueOf(800.0);
-        BigDecimal costSausage1000kg = BigDecimal.valueOf(412.0);
-        BigDecimal costSausage1000to2000 = BigDecimal.valueOf(408.0);
-        BigDecimal costSausage2000 = BigDecimal.valueOf(404.0);
+        final BigDecimal sausagePrice = BigDecimal.valueOf(800.0);
+        final BigDecimal costSausage1000kg = BigDecimal.valueOf(412.0);
+        final BigDecimal costSausage1000to2000 = BigDecimal.valueOf(408.0);
+        final BigDecimal costSausage2000 = BigDecimal.valueOf(404.0);
 
-        BigDecimal priceHam = BigDecimal.valueOf(350.0);
-        BigDecimal costHam = BigDecimal.valueOf(275.0);
+        final BigDecimal priceHam = BigDecimal.valueOf(350.0);
+        final BigDecimal costHam = BigDecimal.valueOf(275.0);
 
-        BigDecimal neckSalePrice = BigDecimal.valueOf(500.0);
-        BigDecimal costNeckDuring500kg = BigDecimal.valueOf(311.0);
-        BigDecimal costOfNeckDuring500kg = BigDecimal.valueOf(299.0);
+        final BigDecimal neckSalePrice = BigDecimal.valueOf(500.0);
+        final BigDecimal costNeckDuring500kg = BigDecimal.valueOf(311.0);
+        final BigDecimal costOfNeckDuring500kg = BigDecimal.valueOf(299.0);
 
-        BigDecimal quantSausageSoldKg = BigDecimal.valueOf(2000.0);
-        BigDecimal quantyHamSoldKg = BigDecimal.valueOf(8511.0);
-        BigDecimal quantNeckSoldKg = BigDecimal.valueOf(6988.0);
+        final BigDecimal quantSausageSoldKg = BigDecimal.valueOf(2000.0);
+        final BigDecimal quantyHamSoldKg = BigDecimal.valueOf(8511.0);
+        final BigDecimal quantNeckSoldKg = BigDecimal.valueOf(6988.0);
 
         //считаем полную сумму от проданного продукта за все проданные килограммы
         BigDecimal amountSaleSausage = sausagePrice.multiply(quantSausageSoldKg);
@@ -163,7 +162,7 @@ public class Homework1 {
         BigDecimal amountMoneyFromSaleNeck = neckSalePrice.multiply(quantNeckSoldKg);
 
         //считаем доход по колбасе до налогов
-        BigDecimal incomeBefTaxesSausages = new BigDecimal(0.0);
+        BigDecimal incomeBefTaxesSausages;
         if (quantSausageSoldKg.compareTo(thousand) < zero) {
             incomeBefTaxesSausages = costSausage1000kg.multiply(quantSausageSoldKg);
         } else if (quantSausageSoldKg.compareTo(twoThousand) < 0) {
@@ -174,12 +173,12 @@ public class Homework1 {
         incomeBefTaxesSausages = amountSaleSausage.subtract(incomeBefTaxesSausages);
 
         //считаем доход по ветчине до налогов
-        BigDecimal profitBeforeTaxesHam = new BigDecimal(0.0);
+        BigDecimal profitBeforeTaxesHam;
         profitBeforeTaxesHam = costHam.multiply(quantyHamSoldKg);
         profitBeforeTaxesHam = amountFromSaleHam.subtract(profitBeforeTaxesHam);
 
         //считаем доход по шейки до налогов
-        BigDecimal profitBeforeTaxesNeck = new BigDecimal(0.0);
+        BigDecimal profitBeforeTaxesNeck;
         if (quantNeckSoldKg.compareTo(fiveHundred) >= zero) {
             profitBeforeTaxesNeck = costOfNeckDuring500kg.multiply(quantNeckSoldKg);
         } else {
@@ -188,16 +187,16 @@ public class Homework1 {
         profitBeforeTaxesNeck = amountMoneyFromSaleNeck.subtract(profitBeforeTaxesNeck);
 
         //считаем общий доход до налогов
-        BigDecimal profitBeforeTaxes = BigDecimal.valueOf(0.0);
+        BigDecimal profitBeforeTaxes;
         profitBeforeTaxes = incomeBefTaxesSausages.add(profitBeforeTaxesHam).add(profitBeforeTaxesNeck);
         profitBeforeTaxes = profitBeforeTaxes.subtract(million);
         System.out.println("доход до налогов компании = " + profitBeforeTaxes);
 
         //считаем общий доход после налогов
-        BigDecimal intermediateIncomeValue = BigDecimal.valueOf(0.0);
-        BigDecimal taxIncomeUpToMillion = BigDecimal.valueOf(0.0);
-        BigDecimal taxIncomeUpToTwoMillion = BigDecimal.valueOf(0.0);
-        BigDecimal taxIncomeBelowAndAboveThoseMillions = BigDecimal.valueOf(0.0);
+        BigDecimal intermediateIncomeValue;
+        BigDecimal taxIncomeUpToMillion = BigDecimal.ZERO;
+        BigDecimal taxIncomeUpToTwoMillion = BigDecimal.ZERO;
+        BigDecimal taxIncomeBelowAndAboveThoseMillions = BigDecimal.ZERO;
         BigDecimal onePercentMillion = million.divide(oneHundred);
 
         if (profitBeforeTaxes.compareTo(million) <= zero) {
