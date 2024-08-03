@@ -160,7 +160,7 @@ public class Homework1 {
         //считаем полную сумму от проданного продукта за все проданные килограммы
         BigDecimal amountSaleSausage = sausagePrice.multiply(quantSausageSoldKg);
         BigDecimal amountFromSaleHam = priceHam.multiply(quantyHamSoldKg);
-        BigDecimal amountOfMoneyFromSaleOfNeck = neckSalePrice.multiply(quantNeckSoldKg);
+        BigDecimal amountMoneyFromSaleNeck = neckSalePrice.multiply(quantNeckSoldKg);
 
         //считаем доход по колбасе до налогов
         BigDecimal incomeBefTaxesSausages = new BigDecimal(0.0);
@@ -185,7 +185,7 @@ public class Homework1 {
         } else {
             profitBeforeTaxesNeck = costNeckDuring500kg.multiply(quantNeckSoldKg);
         }
-        profitBeforeTaxesNeck = amountOfMoneyFromSaleOfNeck.subtract(profitBeforeTaxesNeck);
+        profitBeforeTaxesNeck = amountMoneyFromSaleNeck.subtract(profitBeforeTaxesNeck);
 
         //считаем общий доход до налогов
         BigDecimal profitBeforeTaxes = BigDecimal.valueOf(0.0);

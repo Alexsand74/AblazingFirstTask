@@ -3,11 +3,11 @@ package org.javaacademy.core.homework2.office;
 public class Manager {
     private String name;
 
-    public Manager(String name) {
+    Manager(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

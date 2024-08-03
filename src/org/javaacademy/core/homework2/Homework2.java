@@ -81,7 +81,7 @@ public class Homework2 {
         Random random = new Random();
         int number;
         int attemptСounter = 0;
-        int requiredNumber = 999;
+        final int requiredNumber = 999;
         while (true) {
             number = random.nextInt(1000);
             attemptСounter++;
@@ -98,7 +98,7 @@ public class Homework2 {
     public static void ex4() {
         //Создать пакет office.
         //Создать класс офис, в котором есть босс, менеджер, секретарь, охранник.
-//        Office Boss  Manager Secretary SecurityGuard
+        //Office Boss  Manager Secretary SecurityGuard
         //Босс обладает именем. Умеет подгонять менеджера - "{Имя менеджера}" быстрее!
         //Менеджер обладает именем. Умеет кричать - "я ничего не успеваю, помогите!".
         //Секретарь умеет просить менеджера и босса успокоится, а охранника подождать:

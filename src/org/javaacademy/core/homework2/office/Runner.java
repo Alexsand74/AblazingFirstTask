@@ -6,7 +6,7 @@ public class Runner {
         Manager manager = new Manager("Володя");
         SecurityGuard securityGuard = new SecurityGuard("Петрович");
         Secretary secretary = new Secretary();
-        Office office = new Office(boss,manager,secretary,securityGuard);
+        Office office = new Office(boss, manager, secretary, securityGuard);
         office.workingDay();
     }
 }
