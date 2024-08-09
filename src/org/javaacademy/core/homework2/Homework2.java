@@ -40,7 +40,9 @@ public class Homework2 {
         for (int i = 0; i < wordsSize; i++) {
             resultLine += (words[i].stripLeading() + lineToInsert);
         }
-        resultLine = resultLine.substring(0,resultLine.length()-1);
+        int beginIndex = 0;
+        int endIndex = wordsSize - 1;
+        resultLine = resultLine.substring(beginIndex,endIndex);
         System.out.println(resultLine);
     }
 
@@ -90,7 +92,8 @@ public class Homework2 {
             if (requiredNumber == number) {
                 System.out.println("Hомер попытки, " + attemptСounter
                                 + " с которой получилось получить случайным образом число = "
-                                + requiredNumber);
+                                + requiredNumber
+                                + "\n");
                 return;
             }
         }
@@ -129,21 +132,22 @@ public class Homework2 {
         System.out.println("До переворачивания -> " + Arrays.toString(numbers));
         //первое решение
         int temp;
-        for (int i = 0; i < numbers.length/2; i++) {
+        int halfSize = numbers.length/2;
+        int lastNumber = numbers.length - 1;
+        for (int i = 0; i < halfSize; i++) {
             temp = numbers[i];
-            numbers[i] = numbers[numbers.length -1 - i];
-            numbers[numbers.length -1 - i] = temp;
+            numbers[i] = numbers[lastNumber - i];
+            numbers[lastNumber - i] = temp;
         }
         System.out.println("После переворачивания -> " + Arrays.toString(numbers));
         Arrays.sort(numbers);
 
         // второе решение
         System.out.println("До переворачивания -> " + Arrays.toString(numbers));
-        int numberLastElemArr = numbers.length - 1;
-        for (int i = 0; i < numbers.length / 2; i++) {
-            numbers[i] = numbers[i] ^ numbers[numberLastElemArr - i];
-            numbers[numberLastElemArr - i] = numbers[i] ^ numbers[numberLastElemArr - i];
-            numbers[i] = numbers[i] ^ numbers[numberLastElemArr - i];
+        for (int i = 0; i < halfSize; i++) {
+            numbers[i] = numbers[i] ^ numbers[lastNumber - i];
+            numbers[lastNumber - i] = numbers[i] ^ numbers[lastNumber - i];
+            numbers[i] = numbers[i] ^ numbers[lastNumber - i];
         }
         System.out.println("После переворачивания -> " + Arrays.toString(numbers));
     }
