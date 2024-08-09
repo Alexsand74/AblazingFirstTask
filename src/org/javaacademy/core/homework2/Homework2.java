@@ -8,9 +8,13 @@ import java.util.Random;
 public class Homework2 {
     public static void main(String[] args) {
         ex1();
+        System.out.println("-----------------------------------------------");
         ex2();
+        System.out.println("-----------------------------------------------");
         ex3();
+        System.out.println("-----------------------------------------------");
         ex4();
+        System.out.println("-----------------------------------------------");
         ex5();
     }
 
@@ -38,7 +42,6 @@ public class Homework2 {
         }
         resultLine = resultLine.substring(0,resultLine.length()-1);
         System.out.println(resultLine);
-        System.out.println();
     }
 
     public static void ex2() {
@@ -68,7 +71,6 @@ public class Homework2 {
                 + leftUpToRightDownSum);
         System.out.println("Сумма диагонали с левого нижнего угла к верхнему правому = "
                 + leftDownToRightUpSum);
-        System.out.println();
     }
 
     public static void ex3() {
@@ -89,7 +91,6 @@ public class Homework2 {
                 System.out.println("Hомер попытки, " + attemptСounter
                                 + " с которой получилось получить случайным образом число = "
                                 + requiredNumber);
-                System.out.println();
                 return;
             }
         }
@@ -98,7 +99,7 @@ public class Homework2 {
     public static void ex4() {
         //Создать пакет office.
         //Создать класс офис, в котором есть босс, менеджер, секретарь, охранник.
-        //Office Boss  Manager Secretary SecurityGuard
+        //Office Boss Manager Secretary SecurityGuard
         //Босс обладает именем. Умеет подгонять менеджера - "{Имя менеджера}" быстрее!
         //Менеджер обладает именем. Умеет кричать - "я ничего не успеваю, помогите!".
         //Секретарь умеет просить менеджера и босса успокоится, а охранника подождать:
@@ -115,7 +116,6 @@ public class Homework2 {
         //Создать офис
         //Запустить рабочий день в офисе
         Runner.start();
-        System.out.println();
     }
 
     /**

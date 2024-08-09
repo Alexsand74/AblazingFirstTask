@@ -3,6 +3,8 @@ package org.javaacademy.core.homework1;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import static java.math.BigDecimal.valueOf;
+
 public class Homework1 {
     public static void main(String[] args) {
         ex2();
@@ -140,21 +142,21 @@ public class Homework1 {
         final BigDecimal million = new BigDecimal(1_000_000.0);
         final BigDecimal twoMillion = new BigDecimal(2_000_000.0);
 
-        final BigDecimal sausagePrice = BigDecimal.valueOf(800.0);
-        final BigDecimal costSausage1000kg = BigDecimal.valueOf(412.0);
-        final BigDecimal costSausage1000to2000 = BigDecimal.valueOf(408.0);
-        final BigDecimal costSausage2000 = BigDecimal.valueOf(404.0);
+        final BigDecimal sausagePrice = valueOf(800.0);
+        final BigDecimal costSausage1000kg = valueOf(412.0);
+        final BigDecimal costSausage1000to2000 = valueOf(408.0);
+        final BigDecimal costSausage2000 = valueOf(404.0);
 
-        final BigDecimal priceHam = BigDecimal.valueOf(350.0);
-        final BigDecimal costHam = BigDecimal.valueOf(275.0);
+        final BigDecimal priceHam = valueOf(350.0);
+        final BigDecimal costHam = valueOf(275.0);
 
-        final BigDecimal neckSalePrice = BigDecimal.valueOf(500.0);
-        final BigDecimal costNeckDuring500kg = BigDecimal.valueOf(311.0);
-        final BigDecimal costOfNeckDuring500kg = BigDecimal.valueOf(299.0);
+        final BigDecimal neckSalePrice = valueOf(500.0);
+        final BigDecimal costNeckDuring500kg = valueOf(311.0);
+        final BigDecimal costOfNeckDuring500kg = valueOf(299.0);
 
-        final BigDecimal quantSausageSoldKg = BigDecimal.valueOf(2000.0);
-        final BigDecimal quantyHamSoldKg = BigDecimal.valueOf(8511.0);
-        final BigDecimal quantNeckSoldKg = BigDecimal.valueOf(6988.0);
+        final BigDecimal quantSausageSoldKg = valueOf(2000.0);
+        final BigDecimal quantyHamSoldKg = valueOf(8511.0);
+        final BigDecimal quantNeckSoldKg = valueOf(6988.0);
 
         //считаем полную сумму от проданного продукта за все проданные килограммы
         BigDecimal amountSaleSausage = sausagePrice.multiply(quantSausageSoldKg);
