@@ -3,7 +3,7 @@ package org.javaacademy.core.homework3.shop;
 import java.util.Arrays;
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main() {
         //Задача: Тайный клуб покупателей
         //Сделать, рефакторинг кода (т.е изменить код), таким образом, чтобы:
         //1. Магазин мог создаваться во всех классах любых пакетов

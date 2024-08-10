@@ -1,6 +1,5 @@
 package org.javaacademy.core.homework3.phoneFactory;
 
-import org.javaacademy.core.homework3.phoneFactory.Telephone;
 import org.javaacademy.core.homework3.phoneFactory.spareParts.CPU;
 import org.javaacademy.core.homework3.phoneFactory.spareParts.Frame;
 

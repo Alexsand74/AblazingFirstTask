@@ -12,7 +12,7 @@ public class Runner {
     public static void main(String[] args) {
         //В этом дз уже будет, проверятся наличие корректных модификаторов доступа
         //у классов, атрибутов, методов
-
+        ex1();
         System.out.println("-------------------------------------");
         ex2();
         System.out.println("-------------------------------------");
@@ -23,6 +23,7 @@ public class Runner {
 
     public static void ex1() {
         //Зайди в shop.Runner
+        org.javaacademy.core.homework3.shop.Runner.main();
     }
 
     public static void ex2() {
