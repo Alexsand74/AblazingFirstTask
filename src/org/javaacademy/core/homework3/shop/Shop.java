@@ -8,7 +8,7 @@ public class Shop {
     private boolean workersHasBadge; //Есть ли бейджики у сотрудников
     private int countWorkers; //Количество работников в магазине
 
-    public Shop(boolean isClearFloor, boolean workersHasBadge, int countWorkers) {
+     Shop(boolean isClearFloor, boolean workersHasBadge, int countWorkers) {
         this.isClearFloor = isClearFloor;
         this.workersHasBadge = workersHasBadge;
         this.countWorkers = countWorkers;
