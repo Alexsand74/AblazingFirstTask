@@ -27,9 +27,10 @@ public class Homework2 {
         String resultLine = "";
         final String lineToInsert = "-";
         int wordsSize = words.length;
+        int lastWord = words.length - 1;
         for (int i = 0; i < wordsSize; i++) {
-            resultLine += words[i].stripLeading();
-            if (i < wordsSize - 1) {
+            resultLine += words[i];
+            if (i < lastWord) {
                 resultLine += lineToInsert;
             }
         }
@@ -41,7 +42,7 @@ public class Homework2 {
             resultLine += (words[i].stripLeading() + lineToInsert);
         }
         int beginIndex = 0;
-        int endIndex = wordsSize - 1;
+        int endIndex = resultLine.length() - 1;
         resultLine = resultLine.substring(beginIndex,endIndex);
         System.out.println(resultLine);
     }
@@ -65,9 +66,10 @@ public class Homework2 {
         //С левого нижнего угла к верхнему правому
         int leftDownToRightUpSum = 0;
         //Вывести на экран
+        int lastNumber = arrayOfNumbers.length - 1;
         for (int i = 0; i < arrayOfNumbers.length; i++) {
             leftUpToRightDownSum += arrayOfNumbers[i][i];
-            leftDownToRightUpSum += arrayOfNumbers[arrayOfNumbers.length - 1 - i][i];
+            leftDownToRightUpSum += arrayOfNumbers[lastNumber - i][i];
         }
         System.out.println("Cумма диагонали с левого верхнего угла к нижнему правому = "
                 + leftUpToRightDownSum);
@@ -77,12 +79,12 @@ public class Homework2 {
 
     public static void ex3() {
 //        //Дан распределитель случайных чисел
-//        Random random = new Random(1);
+//        Random random = new Random(1); // (1) <- задает постоянную последовательность, порождаемых чисел
 //        //Получение случайного числа
 //        int number = random.nextInt(1000);
 //        //Написать код, генерирующий случайные числа до тех пор, пока не сгенерируется 999.
 //        //Вывести номер попытки, с которой получилось получить случайным образом число 999.
-        Random random = new Random();
+        Random random = new Random(1);
         int number;
         int attemptСounter = 0;
         final int requiredNumber = 999;
@@ -94,10 +96,20 @@ public class Homework2 {
                                 + " с которой получилось получить случайным образом число = "
                                 + requiredNumber
                                 + "\n");
-                return;
+                break;
             }
         }
-    }
+//        решение второе
+        attemptСounter = 1;
+        while (random.nextInt(1000)!= requiredNumber) {
+            attemptСounter++;
+            }
+            System.out.println("Hомер попытки, " + attemptСounter
+                    + " с которой получилось получить случайным образом число = "
+                    + requiredNumber
+                    + "\n");
+        }
+
 
     public static void ex4() {
         //Создать пакет office.

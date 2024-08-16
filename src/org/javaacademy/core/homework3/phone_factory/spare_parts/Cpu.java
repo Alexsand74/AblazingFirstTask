@@ -1,9 +1,9 @@
-package org.javaacademy.core.homework3.phoneFactory.spareParts;
+package org.javaacademy.core.homework3.phone_factory.spare_parts;
 
-public class CPU {
+public class Cpu {
     private final int operatingFrequency;
 
-    public CPU(int operatingFrequency) {
+    public Cpu(int operatingFrequency) {
         this.operatingFrequency = operatingFrequency;
     }
 

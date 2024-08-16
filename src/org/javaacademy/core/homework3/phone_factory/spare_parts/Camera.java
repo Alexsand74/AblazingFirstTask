@@ -1,4 +1,4 @@
-package org.javaacademy.core.homework3.phoneFactory.spareParts;
+package org.javaacademy.core.homework3.phone_factory.spare_parts;
 
 public class Camera {
     private final int numberOfPixels;

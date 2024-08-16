@@ -1,25 +1,25 @@
-package org.javaacademy.core.homework3.phoneFactory;
+package org.javaacademy.core.homework3.phone_factory;
 
-import org.javaacademy.core.homework3.phoneFactory.spareParts.CPU;
-import org.javaacademy.core.homework3.phoneFactory.spareParts.Camera;
-import org.javaacademy.core.homework3.phoneFactory.spareParts.Frame;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Cpu;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Camera;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Frame;
 
 public abstract class Telephone {
     private final Camera camera;
-    private final CPU cpu;
+    private final Cpu cpu;
     private final Frame frame;
 
     protected Telephone(int camera, int cpu, Frame frame) {
         this.camera = new Camera(camera);
-        this.cpu = new CPU(cpu);
-        this.frame = frame;
+        this.cpu = new Cpu(cpu);
+        this.frame = new Frame(frame);
     }
 
     protected Camera getCamera() {
         return camera;
     }
 
-    protected CPU getCpu() {
+    protected Cpu getCpu() {
         return cpu;
     }
 

@@ -1,29 +1,21 @@
-package org.javaacademy.core.homework3.ImmutableCity;
-
+package org.javaacademy.core.homework3.Immutable_city;
 import java.util.Arrays;
-
 public final class City {
+    private final int ZERO = 0;
     private final String name;
     private final House[] arrayHouses;
-
     public City(String name, House[] arrayHouses) {
         this.name = name;
         this.arrayHouses = arrayHouses;
     }
-
     public String getName() {
         String nameCity = this.name;
         return nameCity;
     }
-
     public House[] getHouses() {
-        House[] array = new House[arrayHouses.length];
-        for (int i = 0; i < arrayHouses.length; i++) {
-            array[i] = new House(arrayHouses[i].getName(),arrayHouses[i].getNumber());
-        }
+        House[] array = Arrays.copyOfRange(arrayHouses, ZERO, arrayHouses.length);
         return array;
     }
-
     @Override
     public String toString() {
         return "City{" +

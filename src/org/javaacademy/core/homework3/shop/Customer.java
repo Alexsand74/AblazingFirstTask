@@ -3,7 +3,7 @@ package org.javaacademy.core.homework3.shop;
 /**
  * Покупатель
  */
-public class Customer {
+class Customer {
     private String name;
 
     Customer(String name) {

@@ -1,4 +1,4 @@
-package org.javaacademy.core.homework3.ImmutableCity;
+package org.javaacademy.core.homework3.Immutable_city;
 public class House {
     private String name;
     private int number;

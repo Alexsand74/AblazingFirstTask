@@ -3,12 +3,12 @@ package org.javaacademy.core.homework3.shop;
 /**
  * Магазин
  */
-public class Shop {
+class Shop {
     private boolean isClearFloor; //Чистый пол
     private boolean workersHasBadge; //Есть ли бейджики у сотрудников
     private int countWorkers; //Количество работников в магазине
 
-     Shop(boolean isClearFloor, boolean workersHasBadge, int countWorkers) {
+    public Shop(boolean isClearFloor, boolean workersHasBadge, int countWorkers) {
         this.isClearFloor = isClearFloor;
         this.workersHasBadge = workersHasBadge;
         this.countWorkers = countWorkers;

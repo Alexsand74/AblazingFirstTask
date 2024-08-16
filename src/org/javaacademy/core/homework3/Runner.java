@@ -1,11 +1,11 @@
 package org.javaacademy.core.homework3;
 
-import org.javaacademy.core.homework3.ImmutableCity.City;
-import org.javaacademy.core.homework3.ImmutableCity.House;
-import org.javaacademy.core.homework3.phoneFactory.Iphone;
-import org.javaacademy.core.homework3.phoneFactory.IphoneFactory;
-import org.javaacademy.core.homework3.phoneFactory.Samsung;
-import org.javaacademy.core.homework3.phoneFactory.SamsungFactory;
+import org.javaacademy.core.homework3.Immutable_city.City;
+import org.javaacademy.core.homework3.Immutable_city.House;
+import org.javaacademy.core.homework3.phone_factory.Iphone;
+import org.javaacademy.core.homework3.phone_factory.IphoneFactory;
+import org.javaacademy.core.homework3.phone_factory.Samsung;
+import org.javaacademy.core.homework3.phone_factory.SamsungFactory;
 import org.javaacademy.core.homework3.pyramid.Pyramid1;
 
 public class Runner {
@@ -51,12 +51,12 @@ public class Runner {
         // и корпусом 60х200х15
         //ВНИМАНИЕ! Фабрики создают телефоны без создания экземпляра фабрики!
 
-        Samsung samsung = SamsungFactory.weDo();
+        Samsung samsung = SamsungFactory.createPhone();
         System.out.println(samsung);
         samsung.takesPhoto();
         System.out.println();
 
-        Iphone iphone = IphoneFactory.weDo();
+        Iphone iphone = IphoneFactory.createPhone();
         System.out.println(iphone);
         iphone.takesPhoto();
         iphone.processorInformation();

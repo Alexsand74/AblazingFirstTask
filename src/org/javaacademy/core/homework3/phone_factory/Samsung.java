@@ -1,6 +1,6 @@
-package org.javaacademy.core.homework3.phoneFactory;
+package org.javaacademy.core.homework3.phone_factory;
 
-import org.javaacademy.core.homework3.phoneFactory.spareParts.Frame;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Frame;
 
 public class Samsung extends Telephone {
     public Samsung(int camera, int cpu, Frame frame) {

@@ -1,14 +1,14 @@
-package org.javaacademy.core.homework3.phoneFactory;
+package org.javaacademy.core.homework3.phone_factory;
 
-import org.javaacademy.core.homework3.phoneFactory.spareParts.CPU;
-import org.javaacademy.core.homework3.phoneFactory.spareParts.Frame;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Cpu;
+import org.javaacademy.core.homework3.phone_factory.spare_parts.Frame;
 
 public class Iphone extends Telephone {
-    private final CPU cpuTwo;
+    private final Cpu cpuTwo;
 
     public Iphone(int camera, int cpu, int cpuTwo, Frame frame) {
         super(camera, cpu, frame);
-        this.cpuTwo = new CPU(cpuTwo);
+        this.cpuTwo = new Cpu(cpuTwo);
     }
 
     @Override
