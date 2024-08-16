@@ -13,8 +13,20 @@ public final class City {
         return nameCity;
     }
     public House[] getHouses() {
-        House[] array = Arrays.copyOfRange(arrayHouses, ZERO, arrayHouses.length);
-        return array;
+//        House[] copied = Arrays.stream(arrayHouses)
+//                .map(o -> new House(o.getName(), o.getNumber()))
+//                .toArray(House[]::new);  // Создаем новый массив объектов
+
+        int number;
+        House[] copied = new House[arrayHouses.length];
+        StringBuffer street = new StringBuffer();
+        for (int i = ZERO; i < arrayHouses.length; i++){
+            number = arrayHouses[i].getNumber();
+            street.append(arrayHouses[i].getName());
+            copied[i] = new House(street.toString(),number);
+            street.delete(ZERO, street.length());
+        }
+    return copied;
     }
     @Override
     public String toString() {

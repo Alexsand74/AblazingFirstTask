@@ -128,7 +128,7 @@ public class Runner {
         house.setName("Pervomayskaya");
         house.setNumber(88);
         System.out.println(house);
-        city.getHouses()[0].setName("Pervomayskaya");
+        city.getHouses()[0].setName("PervomaySKAYA");
         city.getHouses()[0].setNumber(44);
         System.out.println(city.getHouses()[0]);
     }
