@@ -36,8 +36,8 @@ public class CarWash {
 
     public int cleanTransports(Transport... transports) {
         int costWashing = 0;
-        for (Transport t : transports) {
-            costWashing += clean(t);
+        for (Transport transport : transports) {
+            costWashing += clean(transport);
         }
         return costWashing;
     }

@@ -44,7 +44,7 @@ public class Runner {
         CarWash carWash = new CarWash();
         PassengerCar car = new PassengerCar(5, 2, 1.8);
         Bus bus = new Bus(12, 3, 2.3);
-        Transport[] transportArrays = {car, car, car, car, bus, bus, bus, bus, bus, bus};
+        Transport[] transportArrays = {car, car, car, car, bus, bus, bus, bus, bus};
         System.out.println("Сумма за мойку всех авто = " + carWash.cleanTransports(transportArrays));
     }
 
@@ -100,8 +100,8 @@ public class Runner {
         //Создать в этом методе человека, строителя, водителя и птицу. Запихнуть в единый массив.
         //Пройтись по массиву и заставить их издать звуки.
         Sounding[] soundingArray = {new Human(), new Builder(), new Driver(), new Bird()};
-        for (Sounding el : soundingArray) {
-            el.sounding();
+        for (Sounding element : soundingArray) {
+            element.sounding();
         }
     }
 
