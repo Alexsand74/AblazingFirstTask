@@ -10,7 +10,7 @@ public abstract class Herbivore extends Live {
         super(weight);
     }
 
-    protected void run() throws Exception {
+    public void run() throws Exception {
         if (!this.isLife()) {
             throw new Exception("Животное не может бегать");
         }

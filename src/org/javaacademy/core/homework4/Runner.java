@@ -1,20 +1,20 @@
 package org.javaacademy.core.homework4;
 
-import org.javaacademy.core.homework4.ex1.CarWash;
-import org.javaacademy.core.homework4.ex1.transport.Bus;
-import org.javaacademy.core.homework4.ex1.transport.PassengerCar;
-import org.javaacademy.core.homework4.ex1.transport.Transport;
-import org.javaacademy.core.homework4.ex2.flying.Airplane;
-import org.javaacademy.core.homework4.ex2.flying.Duck;
 import org.javaacademy.core.homework4.ex3.Bird;
 import org.javaacademy.core.homework4.ex3.Human;
 import org.javaacademy.core.homework4.ex3.Driver;
 import org.javaacademy.core.homework4.ex3.Builder;
 import org.javaacademy.core.homework4.ex3.Sounding;
-import org.javaacademy.core.homework4.ex4.herbivore.Elephant;
-import org.javaacademy.core.homework4.ex4.herbivore.Rabbit;
-import org.javaacademy.core.homework4.ex4.predator.Tiger;
 import org.javaacademy.core.homework4.ex4.predator.Wolf;
+import org.javaacademy.core.homework4.ex4.predator.Tiger;
+import org.javaacademy.core.homework4.ex4.herbivore.Rabbit;
+import org.javaacademy.core.homework4.ex4.herbivore.Elephant;
+import org.javaacademy.core.homework4.ex2.flying.Duck;
+import org.javaacademy.core.homework4.ex2.flying.Airplane;
+import org.javaacademy.core.homework4.ex1.CarWash;
+import org.javaacademy.core.homework4.ex1.transport.Bus;
+import org.javaacademy.core.homework4.ex1.transport.Transport;
+import org.javaacademy.core.homework4.ex1.transport.PassengerCar;
 
 public class Runner {
     public static void main(String[] args) {
@@ -42,9 +42,13 @@ public class Runner {
         //5 автобусов(12х3х2.3)
         //Посчитать и вывести: сколько мэрия заплатит денег за мойку всех машин.
         CarWash carWash = new CarWash();
-        PassengerCar car = new PassengerCar(5, 2, 1.8);
-        Bus bus = new Bus(12, 3, 2.3);
-        Transport[] transportArrays = {car, car, car, car, bus, bus, bus, bus, bus};
+        Transport[] transportArrays = new Transport[9];
+        for (int i = 0; i < 4; i++) {
+            transportArrays[i] = new PassengerCar(5, 2, 1.8);
+        }
+        for (int i = 4; i < 9; i++) {
+            transportArrays[i] = new Bus(12, 3, 2.3);
+        }
         System.out.println("Сумма за мойку всех авто = " + carWash.cleanTransports(transportArrays));
     }
 

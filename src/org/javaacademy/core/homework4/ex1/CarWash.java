@@ -24,7 +24,7 @@ public class CarWash {
     }
 
     public int calculationPrices(Transport transport) {
-        int countSuccessRules = 0; // колличество успешно пройденные условий
+        int countSuccessRules = 0; // количество успешно пройденные условий
         countSuccessRules += transport.getHeight() > HEIGHT ? 1 : 0;
         countSuccessRules += transport.getLength() > LENGTH ? 1 : 0;
         countSuccessRules += transport.getWidth() > WIDTH ? 1 : 0;

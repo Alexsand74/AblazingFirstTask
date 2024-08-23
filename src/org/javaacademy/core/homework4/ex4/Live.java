@@ -2,8 +2,8 @@ package org.javaacademy.core.homework4.ex4;
 
 public abstract class Live {
 //    Живое - обладает свойством жив/мертв, вес. Умеет умирать - переход в состояние мертв.
-    private double weight;
-    private boolean life; // true - жив, false - мертв
+    protected double weight;
+    protected boolean life; // true - жив, false - мертв
 
     public Live(double weight) {
         this.weight = weight;
