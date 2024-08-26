@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 
 public class ComputerSpy extends Computer {
     //Создать компьютерного шпиона, который наследуется от компьютера,
@@ -18,8 +19,9 @@ public class ComputerSpy extends Computer {
     //3. При отправке сообщения, делалась запись в comp.log:
     // "Пользователь {имя пользователя} отправил сообщение {текст сообщения}"
     // и вызвался метод компьютера.
-    private final String PATH_COMP = "\\resources\\comp.log";
-    private final String SOURCE_DIRECTORY = "target";
+
+    private static final String PATH_COMP = "\\resources\\comp.log";
+    private static final String SOURCE_DIRECTORY = "target";
 
     public Computer computer;
 
@@ -49,7 +51,7 @@ public class ComputerSpy extends Computer {
 
     private void entryLog(String message) {
         String pathRunner = "";
-        String modifiedString = "";
+        StringBuilder modifiedString = new StringBuilder();
         try {
             pathRunner = resourcePathTemplate();
         } catch (UnsupportedEncodingException e) {
@@ -57,15 +59,17 @@ public class ComputerSpy extends Computer {
         }
         pathRunner = pathRunner.replace("\\", " ");
         String[] arrayStrings = pathRunner.split(" ");
-        for (String word: arrayStrings) {
+        for (String word : arrayStrings) {
             if (SOURCE_DIRECTORY.equals(word)) {
                 break;
             }
-            modifiedString += word;
-            modifiedString += " ";
+            modifiedString.append(word);
+            modifiedString.append(" ");
         }
 
-        modifiedString = modifiedString.trim().replace(" ", "\\");
+        modifiedString = new StringBuilder(modifiedString.toString()
+                                                         .trim()
+                                                         .replace(" ", "\\"));
         String resourceComp = modifiedString + PATH_COMP;
 
         try (FileWriter writer = new FileWriter(resourceComp, true)) {
@@ -80,7 +84,7 @@ public class ComputerSpy extends Computer {
                 .getProtectionDomain()
                 .getCodeSource()
                 .getLocation()
-                .getPath(), "UTF-8"));
+                .getPath(), StandardCharsets.UTF_8));
         return currentClass.getParent();
     }
 }

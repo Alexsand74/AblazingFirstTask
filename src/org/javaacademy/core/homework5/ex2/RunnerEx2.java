@@ -10,10 +10,10 @@ public class RunnerEx2 {
     public static void start() {
         Computer computer = new Computer();
         ComputerSpy computerSpy = new ComputerSpy(computer);
-        computerSpy.userLogin("Maks");
+        computerSpy.userLogin("Maxim");
         computerSpy.sendsMessage("Hello friends!)");
         computerSpy.userLogout();
-        computerSpy.userLogin("Alexs");
+        computerSpy.userLogin("Alex");
         computerSpy.sendsMessage("Hello my friend Alex!)");
         computerSpy.userLogout();
     }

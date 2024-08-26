@@ -54,6 +54,20 @@ public class RunnerEx1 {
         }
     }
 
+    private static void convertOne(String lineString) {
+        Countries[] countriesArray = Countries.values();
+        for (Countries element : countriesArray) {
+            if (lineString.startsWith(element.getName())) {
+                try {
+                    BigDecimal lastNumber = element.getDonations();
+                    element.setDonations(lastNumber.add(extractDonationString(lineString)));
+                } catch (NumberFormatException | WordNumberTranslationException e) {
+                    e.getStackTrace();
+                }
+            }
+        }
+    }
+
     public static void start2() {
         try (Scanner scanner = new Scanner(Objects.requireNonNull(Runner.class
                 .getClassLoader()
@@ -68,20 +82,6 @@ public class RunnerEx1 {
                 continue;
             }
             System.out.println(countries[i] + " - " + countriesDonations[i]);
-        }
-    }
-
-    private static void convertOne(String lineString) {
-        Countries[] countriesArray = Countries.values();
-        for (Countries element : countriesArray) {
-            if (lineString.startsWith(element.getName())) {
-                try {
-                    BigDecimal lastNumber = element.getDonations();
-                    element.setDonations(lastNumber.add(extractDonationString(lineString)));
-                } catch (NumberFormatException | WordNumberTranslationException e) {
-                    e.getStackTrace();
-                }
-            }
         }
     }
 
@@ -101,11 +101,12 @@ public class RunnerEx1 {
      * От первой встречающейся в строке цифры (включая её) вырезает подстроку
      * и далее переводит её в число формата BigDecimal
      * если внутри подстроки есть другие символы кроме цифр, не учитываем "," или "."
-     * метод выкидывает NumberFormatException
+     * метод выкидывает WordNumberTranslationException
      */
     private static BigDecimal extractDonationString(String word) throws WordNumberTranslationException {
         int tempIndex;
         int index = word.length();
+
         String tempWord;
         for (String lineNumber : lineNumbers) {
             tempIndex = word.indexOf(lineNumber);
@@ -118,6 +119,7 @@ public class RunnerEx1 {
         if (!checkNumber(tempWord)) {
             throw new WordNumberTranslationException("numbers are not extracted from the word");
         }
+
         return BigDecimal.valueOf(Double.parseDouble(tempWord));
     }
 

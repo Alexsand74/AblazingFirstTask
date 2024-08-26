@@ -1,15 +1,10 @@
 package org.javaacademy.core.homework5;
 
 import org.javaacademy.core.homework5.ex1.RunnerEx1;
-import org.javaacademy.core.homework5.ex2.ComputerSpy;
 import org.javaacademy.core.homework5.ex2.RunnerEx2;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Scanner;
-
 public class Runner {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         ex1();
         System.out.println("------------------------------------------------------------");
         ex2();
