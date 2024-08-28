@@ -7,6 +7,7 @@ public class RunnerEx2 {
     //3. Сделать вход пользователя, отправку сообщения, выход пользователя через компьютерного шпиона.
     //4. Проверить наличие логов в comp.log
     // (файл должен быть внутри репозитория и отправлен в удаленное репо)
+
     public static void start() {
         Computer computer = new Computer();
         ComputerSpy computerSpy = new ComputerSpy(computer);

@@ -13,7 +13,7 @@ public class RunnerEx1 {
     //Россия ; 14233,00
     //Франция - 8000.3g2
     //Китай;20000.11d
-    //Япония  1,06710
+    //Япония  124.10
     //yyyyyyyyy yyyyyyy
     //Турция777.55
     //Китай - 20000.11д
@@ -28,6 +28,8 @@ public class RunnerEx1 {
     //Китай - 20000.11
     //Япония - 124.10
     //Турция - 777.55
+
+    private static final int THERE_IS_NO_INDEX = -1;
     private static final String filename = "donation.csv";
     private static final String[] countries = {"Россия", "Франция", "Китай", "Япония", "Турция"};
     private static final String[] lineNumbers = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -97,7 +99,7 @@ public class RunnerEx1 {
         }
     }
 
-    /*
+    /**
      * От первой встречающейся в строке цифры (включая её) вырезает подстроку
      * и далее переводит её в число формата BigDecimal
      * если внутри подстроки есть другие символы кроме цифр, не учитываем "," или "."
@@ -110,20 +112,22 @@ public class RunnerEx1 {
         String tempWord;
         for (String lineNumber : lineNumbers) {
             tempIndex = word.indexOf(lineNumber);
-            if (tempIndex != -1 && tempIndex < index) {
+            if (tempIndex != THERE_IS_NO_INDEX && tempIndex < index) {
                 index = tempIndex;
             }
         }
 
         tempWord = word.substring(index).replace(",", ".");
-        if (!checkNumber(tempWord)) {
-            throw new WordNumberTranslationException("numbers are not extracted from the word");
+        if (!checkWordFromNumbers(tempWord)) {
+            throw new WordNumberTranslationException();
         }
-
         return BigDecimal.valueOf(Double.parseDouble(tempWord));
     }
 
-    private static boolean checkNumber(String word) {
+    /**
+     * Проверяем слово состоит ли оно только из цифр и точки
+     */
+    private static boolean checkWordFromNumbers(String word) {
         word = word.replace(".", "");
         return word.matches("\\d+");
     }
