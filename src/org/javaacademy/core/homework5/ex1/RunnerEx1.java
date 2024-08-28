@@ -48,11 +48,11 @@ public class RunnerEx1 {
                 convertOne(scanner.nextLine());
             }
         }
-        for (Countries element : Countries.values()) {
-            if (element.getDonations().equals(BigDecimal.ZERO)) {
+        for (Countries country : Countries.values()) {
+            if (country.getDonations().equals(BigDecimal.ZERO)) {
                 continue;
             }
-            System.out.println(element.getName() + " - " + element.getDonations());
+            System.out.println(country.getName() + " - " + country.getDonations());
         }
     }
 
