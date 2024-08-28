@@ -73,9 +73,9 @@ public class ComputerSpy extends Computer {
         String resourceComp = modifiedString + PATH_COMP;
 
         try (FileWriter writer = new FileWriter(resourceComp, true)) {
-            writer.write("\n" + message);
+            writer.write(message + "\n");
         } catch (IOException e) {
-            e.printStackTrace();
+             e.printStackTrace();
         }
     }
 
