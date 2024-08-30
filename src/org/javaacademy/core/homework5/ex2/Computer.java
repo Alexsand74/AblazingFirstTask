@@ -16,7 +16,7 @@ public class Computer {
     }
 
     public void userLogout() {
-        this.nameUser = "";
+        this.nameUser = null;
     }
 
     public void sendsMessage(String message) {

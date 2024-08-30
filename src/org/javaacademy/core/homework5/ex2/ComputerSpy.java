@@ -30,7 +30,7 @@ public class ComputerSpy extends Computer {
     private static final String PATH_COMP = "\\resources\\comp.log";
     private static final String SOURCE_DIRECTORY = "target";
 
-    public Computer computer;
+    private Computer computer;
 
     public ComputerSpy(Computer computer) {
         this.computer = computer;
@@ -40,20 +40,20 @@ public class ComputerSpy extends Computer {
     public void userLogin(String nameUser) {
         String nameUserLog = "Пользователь {" + nameUser + "} вошел";
         entryLog(nameUserLog);
-        super.userLogin(nameUser);
+        computer.userLogin(nameUser);
     }
 
     @Override
     public void userLogout() {
         String nameUserLog = "Пользователь вышел";
         entryLog(nameUserLog);
-        super.userLogout();
+        computer.userLogout();
     }
 
     @Override
     public void sendsMessage(String message) {
         entryLog(message);
-        super.sendsMessage(message);
+        computer.sendsMessage(message);
     }
 
     private void entryLog(String message) {

@@ -45,18 +45,18 @@ public class RunnerEx1 {
                 .getResourceAsStream(filename)))
         ) {
             while (scanner.hasNext()) {
-                convertOne(scanner.nextLine());
+                convertStringIntoDonationsOne(scanner.nextLine());
             }
         }
-        for (Countries country : Countries.values()) {
-            if (country.getDonations().equals(BigDecimal.ZERO)) {
+        for (Countries element : Countries.values()) {
+            if (element.getDonations().equals(BigDecimal.ZERO)) {
                 continue;
             }
-            System.out.println(country.getName() + " - " + country.getDonations());
+            System.out.println(element.getName() + " - " + element.getDonations());
         }
     }
 
-    private static void convertOne(String lineString) {
+    private static void convertStringIntoDonationsOne(String lineString) {
         Countries[] countriesArray = Countries.values();
         for (Countries element : countriesArray) {
             if (lineString.startsWith(element.getName())) {
@@ -64,7 +64,6 @@ public class RunnerEx1 {
                     BigDecimal lastNumber = element.getDonations();
                     element.setDonations(lastNumber.add(extractDonationString(lineString)));
                 } catch (NumberFormatException | WordNumberTranslationException e) {
-                    e.getStackTrace();
                 }
             }
         }
@@ -76,7 +75,7 @@ public class RunnerEx1 {
                 .getResourceAsStream(filename)))
         ) {
             while (scanner.hasNext()) {
-                convertTwo(scanner.nextLine());
+                convertStringIntoDonationsTwo(scanner.nextLine());
             }
         }
         for (int i = 0; i < countries.length; i++) {
@@ -87,13 +86,12 @@ public class RunnerEx1 {
         }
     }
 
-    private static void convertTwo(String lineString) {
+    private static void convertStringIntoDonationsTwo(String lineString) {
         for (int i = 0; i < countries.length; i++) {
             if (lineString.startsWith(countries[i])) {
                 try {
                     countriesDonations[i] = countriesDonations[i].add(extractDonationString(lineString));
                 } catch (NumberFormatException | WordNumberTranslationException e) {
-                    e.getStackTrace();
                 }
             }
         }

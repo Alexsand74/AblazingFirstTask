@@ -9,7 +9,7 @@ public class RunnerEx2 {
     // (файл должен быть внутри репозитория и отправлен в удаленное репо)
 
     public static void start() {
-        Computer computer = new Computer(){};
+        Computer computer = new Computer();
         ComputerSpy computerSpy = new ComputerSpy(computer);
         computerSpy.userLogin("Maxim");
         computerSpy.sendsMessage("Hello friends!)");
